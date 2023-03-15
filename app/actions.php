@@ -38,6 +38,5 @@ $webhook_THEME_PUBLISH = array(
 );
 $oc_webhook = $Shopify->createWebhook($_SESSION["shop_url"], $_SESSION["access_token"], $webhook_ORDER_CREATE);
 $tp_webhook = $Shopify->createWebhook($_SESSION["shop_url"], $_SESSION["access_token"], $webhook_THEME_PUBLISH);
-print_r($oc_webhook);
-echo '---<br><br>---';
-print_r($tp_webhook);
+// print_r($oc_webhoo
+
