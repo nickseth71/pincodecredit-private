@@ -14,7 +14,7 @@ const utm_source = (params.utm_source) || 'null';
 const referral = (params.referral) || 'null';
 if (utm_source.toUpperCase() === 'PINCODE_CREDITS') {
     sessionStorage.setItem("pindoceCreditsUserId", userid+':'+referral);
-    postData("https://5fb9-106-202-154-202.in.ngrok.io/pincode-credit-private-app/API/VisitorsConfimation.php", { 'userid': userid, 'referral': referral }).then((data) => {
+    postData("https://pincodecredits.in/pincodecredit-private/API/VisitorsConfimation.php", { 'userid': userid, 'referral': referral }).then((data) => {
         console.log(data);
     });
 }

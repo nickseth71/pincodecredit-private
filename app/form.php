@@ -12,7 +12,12 @@ if (isset($_SESSION["access_token"]) and isset($_SESSION["shop_url"])) {
     $t_val = $_SESSION["access_token"];
 }
 if (isset($_SESSION["access_token"]) and isset($_SESSION["shop_url"]) and $flag) {
-    echo '<div class="already_exits_mgs text-center">You have already Install for <strong><em>'
+    echo '<div class="already_exits_mgs text-center">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle mgg warn" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"></path>
+    </svg>
+    You have already Install for <strong><em>'
         . $_SESSION["shop_url"] .
         '</em></strong>.<br/>If you want Install Other App then <a href="app/logout.php">click here</a>.</div>';
 } else {

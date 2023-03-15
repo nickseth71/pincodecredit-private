@@ -8,6 +8,6 @@
 	define("SHOPIFY_API_KEY", "");
 	define("SHOPIFY_SECRET_KEY", "");
 	define("SHOPIFY_URL", "");
-	define("APP_URL", "https://5fb9-106-202-154-202.in.ngrok.io/pincode-credit-private-app/");
+	define("APP_URL", "https://pincodecredits.in/pincodecredit-private/");
 
 ?>

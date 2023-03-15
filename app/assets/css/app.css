@@ -60,13 +60,38 @@ body {
 .invalid-feedback.active {
 	display: block;
 }
-.toggle-pass{cursor: pointer}
-.toggle-pass .bi-eye-slash{display:none;}
-.toggle-pass.active .bi-eye {display: none;}
-.toggle-pass.active .bi-eye-slash{display:block;}
+
+.toggle-pass {
+	cursor: pointer
+}
+
+.toggle-pass .bi-eye-slash {
+	display: none;
+}
+
+.toggle-pass.active .bi-eye {
+	display: none;
+}
+
+.toggle-pass.active .bi-eye-slash {
+	display: block;
+}
 
 .toast {
 	background: #fff3cd;
 	color: #664d03;
 	top: 10px !important;
+}
+
+.mgg {
+	color: #009500;
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	margin-right: 5px;
+	transform: translateY(-1px);
+}
+
+.mgg.warn {
+	color: #664d03;
 }
