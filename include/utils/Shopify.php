@@ -191,6 +191,102 @@ class Shopify
         // }
     }
 
+    function getPublishThemeID($shop, $access_token)
+    {
+        $curl_url = "https://$shop/admin/themes.json";
+        // set curl options
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $curl_url);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type:application/json", "X-Shopify-Access-Token:$access_token"));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        // execute curl
+        $id = NULL;
+        $response = json_decode(curl_exec($ch), true)['themes'];
+        foreach ($response as $value) {
+            if ($value['role'] === 'main') {
+                $id = $value['id'];
+                break;
+            }
+        }
+
+        // close curl
+        curl_close($ch);
+        return $id;
+    }
+
+    public function getshopify_assest($shop, $access_token, $id, $filename)
+    {
+        $curl = curl_init();
+        $curl_url = "https://$shop/admin/themes/$id/assets.json?asset[key]=$filename";
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => $curl_url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "cache-control: no-cache",
+                "content-type: application/json",
+                "X-Shopify-Access-Token: $access_token"
+            )
+        ));
+        $response = json_decode(curl_exec($curl), true);
+        //$response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            return $response;
+        }
+    }
+
+    public function updateTemplate( $shop, $access_token, $theme_id, $data,)
+    {
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://" . $shop . "/admin/api/2021-07/themes/$theme_id/assets.json",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CUSTOMREQUEST => "PUT",
+            CURLOPT_HTTPHEADER => array(
+                "cache-control: no-cache",
+                "content-type: application/json",
+                "X-Shopify-Access-Token: $access_token"
+            ),
+            CURLOPT_POSTFIELDS => $data
+        ));
+        $response = json_decode(curl_exec($curl), true);
+        //$response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            $response_data = $response;
+            return $response_data;
+        }
+    }
+
+    function insertString($mainString, $afterString, $insert_string)
+    {
+        $var = strpos($mainString, $afterString) + strlen($afterString);
+        $var_count = $var - 7;
+        if (strpos($mainString, $afterString) != false) {
+            if (strpos($mainString, "picodeCreditEmbedJS") == false) {
+                $newstr = substr_replace($mainString, $insert_string, $var_count, 0);
+                return $newstr;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
     public function loginByEmail($email)
     {
         $curl = curl_init();
