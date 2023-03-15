@@ -24,7 +24,6 @@ if ($result[0]['res'] == 'success') {
 $publishThemeID = $Shopify->getPublishThemeID($_SESSION["shop_url"], $_SESSION["access_token"]);
 $theme_liquid = 'layout/theme.liquid';
 $theme_file = $Shopify->getshopify_assest($_SESSION["shop_url"], $_SESSION["access_token"], $publishThemeID, $theme_liquid);
-// echo $theme_file;
 $script_code = '<script>if(!document.querySelector("#picodeCreditEmbedJS")) {
     var script = document.createElement("script");
     script.id = "picodeCreditEmbedJS";
@@ -33,14 +32,12 @@ $script_code = '<script>if(!document.querySelector("#picodeCreditEmbedJS")) {
 
 if (isset($theme_file['asset'])) {
     $final_template_value = $Shopify->insertString($theme_file['asset']['value'], "</body>", $script_code);
-    echo $final_template_value;
     if (isset($final_template_value)) {
         $data_2 = json_encode(array("asset" => array(
             "key" => $theme_file['asset']['key'],
             "value" => $final_template_value
         )), JSON_UNESCAPED_SLASHES);
         $result = $Shopify->updateTemplate($_SESSION["shop_url"], $_SESSION["access_token"], $publishThemeID, $data_2);
-        print_r($result);
     }
 }
 
@@ -62,4 +59,7 @@ $webhook_THEME_PUBLISH = array(
 
 $oc_webhook = $Shopify->createWebhook($_SESSION["shop_url"], $_SESSION["access_token"], $webhook_ORDER_CREATE);
 $tp_webhook = $Shopify->createWebhook($_SESSION["shop_url"], $_SESSION["access_token"], $webhook_THEME_PUBLISH);
-// print_r($oc_webhoo
+
+echo '<div class="already_exits_mgs text-center">Successfully Install for <strong><em>'
+    . $_SESSION["shop_url"] .
+    '</em></strong>.<br/>If you want Install Other App then <a href="' . APP_URL . 'app/logout.php">click here</a>.</div>';
