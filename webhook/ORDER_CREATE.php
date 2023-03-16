@@ -45,6 +45,5 @@ if ($userId != null) {
     )
     );
     $response = curl_exec($curl);
-    $Shopify->updateProductBody($shop, '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', $response);
     curl_close($curl);
 }
