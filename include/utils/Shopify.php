@@ -229,7 +229,8 @@ class Shopify
                 "content-type: application/json",
                 "X-Shopify-Access-Token: $access_token"
             )
-        ));
+        )
+        );
         $response = json_decode(curl_exec($curl), true);
         //$response = curl_exec($curl);
         $err = curl_error($curl);
@@ -243,7 +244,7 @@ class Shopify
         }
     }
 
-    public function updateTemplate( $shop, $access_token, $theme_id, $data,)
+    public function updateTemplate($shop, $access_token, $theme_id, $data, )
     {
         $curl = curl_init();
         curl_setopt_array($curl, array(
@@ -256,9 +257,10 @@ class Shopify
                 "X-Shopify-Access-Token: $access_token"
             ),
             CURLOPT_POSTFIELDS => $data
-        ));
-        $response = json_decode(curl_exec($curl), true);
-        //$response = curl_exec($curl);
+        )
+        );
+
+        $response = curl_exec($curl);
         $err = curl_error($curl);
 
         curl_close($curl);
@@ -266,8 +268,7 @@ class Shopify
         if ($err) {
             echo "cURL Error #:" . $err;
         } else {
-            $response_data = $response;
-            return $response_data;
+            return $response;
         }
     }
 
@@ -301,7 +302,8 @@ class Shopify
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => array('email' => $email),
-        ));
+        )
+        );
 
         $response = curl_exec($curl);
 
