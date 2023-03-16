@@ -56,7 +56,7 @@ $webhook_ORDER_CREATE = array(
 
 $webhook_THEME_PUBLISH = array(
     "webhook" => array(
-        "topic" => "orders/create",
+        "topic" => "themes/publish",
         "address" => APP_URL . 'webhook/THEME_PUBLISH.php?shop=' . $_SESSION["shop_url"],
         "format" => "json"
     )
