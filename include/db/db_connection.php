@@ -96,7 +96,8 @@ class DB_Connection
 		}
 		try {
 			$result = mysqli_query($connection, $query, MYSQLI_USE_RESULT);
-			return $result;
+			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+			return $row;
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
 		}
