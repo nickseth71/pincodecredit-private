@@ -8,9 +8,6 @@ $body_json = file_get_contents('php://input');
 $shop = $_GET["shop"];
 $body = json_decode($body_json, true);
 
-$total_price = $body['total_price'] ?? null;
-
-
 $publishThemeID = $body['id'];
 $theme_liquid = 'layout/theme.liquid';
 $access_token = $Stores -> getData("access_token",$shop);
