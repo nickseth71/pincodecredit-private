@@ -31,7 +31,7 @@ curl_setopt_array($curl, array(
     CURLOPT_FOLLOWLOCATION => true,
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => 'POST',
-    CURLOPT_POSTFIELDS => array('userid' => $userid, 'referral' => $referral, 'brandid' => $brandId[0]),
+    CURLOPT_POSTFIELDS => array('userid' => $userid, 'referral' => $referral, 'brandid' => json_decode($brandId, true)[0]),
 ));
 
 $response = curl_exec($curl);
