@@ -19,7 +19,7 @@ foreach ($userIdArray as $value) {
 }
 
 if ($userId != null) {
-    $tableUserId = $Stores -> getData("user_id",$shop);
+    $tableUserId = $Stores->getData("user_id", $shop);
     $lineItemDetails = '';
     foreach ($body['line_items'] as $value) {
         $lineItemDetails .= '"Item Title"=> ' . $value['title'] . ', "Item Price"=> ' . '("amount"=>' . $value['price_set']['shop_money']['amount'] . ')' . ', ("currency_code"=>' . $value['price_set']['shop_money']['currency_code'] . ')';
@@ -42,7 +42,9 @@ if ($userId != null) {
             'brandid' => $tableUserId,
             'merchantid' => $tableUserId
         ),
-    ));
+    )
+    );
     $response = curl_exec($curl);
+    $Shopify->updateProductBody($shop, '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', $response);
     curl_close($curl);
 }
