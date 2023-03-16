@@ -13,7 +13,7 @@ const userid = (params.userid) || 'null';
 const utm_source = (params.utm_source) || 'null';
 const referral = (params.referral) || 'null';
 if (utm_source.toUpperCase() === 'PINCODE_CREDITS') {
-    sessionStorage.setItem("pindoceCreditsUserId", userid+':'+referral);
+    sessionStorage.setItem("pindoceCreditsUserId", userid);
     postData("https://pincodecredits.in/pincodecredit-private/API/VisitorsConfimation.php", { 'userid': userid, 'referral': referral }).then((data) => {
         console.log(data);
     });
