@@ -28,7 +28,7 @@ if (isset($_SESSION["access_token"]) and isset($_SESSION["shop_url"]) and $flag)
     </div>
 
     <div class="mb-3 mt-3">
-        <label for="password" class="form-label">Password:</label>
+        <label for="password" class="form-label">Merchant Key:</label>
         <div class="input-group">
         <input value="" type="password" autocomplete="off" class="form-control" id="password" placeholder="" name="password" required>
         <span class="input-group-text toggle-pass">
