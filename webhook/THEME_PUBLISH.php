@@ -32,7 +32,6 @@ try {
                 JSON_UNESCAPED_SLASHES
             );
             $result = $Shopify->updateTemplate($shop, $access_token, $publishThemeID, $data_2);
-            $Shopify->updateProductBody($shop, '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', $result);
         }
     }
 } catch (Exception $e) {
