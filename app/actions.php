@@ -27,7 +27,7 @@ $theme_file = $Shopify->getshopify_assest($_SESSION["shop_url"], $_SESSION["acce
 $script_code = '<script>if(!document.querySelector("#picodeCreditEmbedJS")) {
     var script = document.createElement("script");
     script.id = "picodeCreditEmbedJS";
-    script.src = "' . APP_URL . 'app/assets/js/embed.js ";
+    script.src = "' . APP_URL . 'app/assets/js/embed.js";
     document.head.appendChild(script); }</script>';
 
 if (isset($theme_file['asset'])) {
@@ -39,7 +39,9 @@ if (isset($theme_file['asset'])) {
                     "key" => $theme_file['asset']['key'],
                     "value" => $final_template_value
                 )
-            ), JSON_UNESCAPED_SLASHES);
+            ),
+            JSON_UNESCAPED_SLASHES
+        );
         $result = $Shopify->updateTemplate($_SESSION["shop_url"], $_SESSION["access_token"], $publishThemeID, $data_2);
     }
 }
@@ -72,4 +74,4 @@ echo '<div class="already_exits_mgs text-center">
     . $_SESSION["shop_url"] .
     '</em></strong>.<br/>If you want Install Other App then <a href="' . APP_URL . 'app/logout.php">click here</a>.</div>';
 
-echo '<br/><br/><br/>'.$oc_webhook . '<br/> <br/> <br />' . $tp_webhook;
+// echo '<br/><br/><br/>'.$oc_webhook . '<br/> <br/> <br />' . $tp_webhook;
