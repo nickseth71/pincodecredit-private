@@ -39,8 +39,8 @@ if ($userId != null) {
             'userid' => $userId,
             'amount' => $total_price,
             'saledescription' => $saleDescription,
-            'brandid' => $tableUserId[0],
-            'merchantid' => $tableUserId[0]
+            'brandid' => $tableUserId,
+            'merchantid' => $tableUserId
         ),
     ));
     $response = curl_exec($curl);

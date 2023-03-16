@@ -21,7 +21,6 @@ $shop = $data['shop'];
 $brandId = $Stores->getData("user_id", $shop);
 
 $curl = curl_init();
-print_r($brandId);
 curl_setopt_array($curl, array(
     CURLOPT_URL => 'https://pincodecredits.com/PincodeAdmin/API/V1/Visitors',
     CURLOPT_RETURNTRANSFER => true,
@@ -37,4 +36,4 @@ curl_setopt_array($curl, array(
 $response = curl_exec($curl);
 
 curl_close($curl);
-echo $response;
+echo $response. '<br />' . $brandId;

@@ -82,7 +82,7 @@ class DB_Connection
 			$row = mysqli_num_rows($result);
 			return $row;
 		} catch (Exception $e) {
-			echo 'Caught exception: ',  $e->getMessage(), "\n";
+			echo 'Caught exception: ', $e->getMessage(), "\n";
 		}
 	}
 
@@ -97,9 +97,13 @@ class DB_Connection
 		try {
 			$result = mysqli_query($connection, $query, MYSQLI_USE_RESULT);
 			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-			return $row;
+			if ($columns == "*") {
+				return $row;
+			} else {
+				return $row[$columns];
+			}
 		} catch (Exception $e) {
-			echo 'Caught exception: ',  $e->getMessage(), "\n";
+			echo 'Caught exception: ', $e->getMessage(), "\n";
 		}
 	}
 

@@ -52,5 +52,5 @@ async function postData(url = "", data = {}) {
         referrerPolicy: "no-referrer",
         body: JSON.stringify(data),
     });
-    return response.json();
+    return response.text();
 }
