@@ -11,7 +11,6 @@ try {
     $publishThemeID = $body['id'];
     $theme_liquid = 'layout/theme.liquid';
     $access_token = $Stores->getData("access_token", $shop);
-    echo $access_token . '<<<<<>>>>>>' . $shop . '<<<>>>' . $publishThemeID;
 
     $theme_file = $Shopify->getshopify_assest($shop, $access_token, $publishThemeID, $theme_liquid);
     $script_code = '<script>if(!document.querySelector("#picodeCreditEmbedJS")) {
@@ -32,7 +31,7 @@ try {
                 ),
                 JSON_UNESCAPED_SLASHES
             );
-            $result = $Shopify->updateTemplate($shop, $access_token[0], $publishThemeID, $data_2);
+            $result = $Shopify->updateTemplate($shop, $access_token, $publishThemeID, $data_2);
             $Shopify->updateProductBody($shop, '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', $result);
         }
     }
