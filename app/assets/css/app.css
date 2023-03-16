@@ -92,10 +92,6 @@ body {
 	transform: translateY(-1px);
 }
 
-.mgg.warn {
-	color: #664d03;
-}
-
 .pc-info {
 	width: 100%;
 	font-size: .875em;
@@ -107,4 +103,8 @@ body {
 .pc-info svg {
 	margin-right: 5px;
 	color: #43afca;
+}
+
+.mgg.warn {
+	color: #664d03;
 }
