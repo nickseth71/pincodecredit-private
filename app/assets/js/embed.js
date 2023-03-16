@@ -12,9 +12,10 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
 const userid = (params.userid) || 'null';
 const utm_source = (params.utm_source) || 'null';
 const referral = (params.referral) || 'null';
+const shop = window.Shopify.shop || Shopify.shop;
 if (utm_source.toUpperCase() === 'PINCODE_CREDITS') {
     sessionStorage.setItem("pindoceCreditsUserId", userid);
-    postData("https://pincodecredits.in/pincodecredit-private/API/VisitorsConfimation.php", { 'userid': userid, 'referral': referral }).then((data) => {
+    postData("https://pincodecredits.in/pincodecredit-private/API/VisitorsConfimation.php", { 'userid': userid, 'referral': referral, 'shop': shop }).then((data) => {
         console.log(data);
     });
 }

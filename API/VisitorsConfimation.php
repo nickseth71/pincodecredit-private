@@ -17,6 +17,7 @@ $data = json_decode(file_get_contents("php://input"), true);
 
 $userid = $data['userid'];
 $referral = $data['referral'];
+$shop = $data['shop'];
 $brandId = $Stores->getData("user_id", $shop);
 
 $curl = curl_init();
