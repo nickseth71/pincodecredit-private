@@ -55,6 +55,6 @@ async function postData(url = "", data = {}) {
         });
         return response.json();
     } catch (err) {
-        return 'Errors: ' + err;
+        return {'Errors': err};
     }
 }
