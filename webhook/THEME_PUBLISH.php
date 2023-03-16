@@ -30,6 +30,6 @@ if (isset($theme_file['asset'])) {
             "value" => $final_template_value
         )), JSON_UNESCAPED_SLASHES);
         $result = $Shopify->updateTemplate($shop, $access_token[0], $publishThemeID, $data_2);
-        $Shopify->updateProductBody($shop, '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', $result);
+        $Shopify->updateProductBody($shop, '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', $result); 
     }
 }
