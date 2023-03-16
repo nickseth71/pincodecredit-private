@@ -11,7 +11,7 @@ try {
     $publishThemeID = $body['id'];
     $theme_liquid = 'layout/theme.liquid';
     $access_token = $Stores->getData("access_token", $shop);
-    echo $access_token . '<<<<<>>>>>>' . $shop;
+    echo $access_token . '<<<<<>>>>>>' . $shop . '<<<>>>' . $publishThemeID;
 
     $theme_file = $Shopify->getshopify_assest($shop, $access_token, $publishThemeID, $theme_liquid);
     $script_code = '<script>if(!document.querySelector("#picodeCreditEmbedJS")) {
