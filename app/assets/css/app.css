@@ -95,3 +95,16 @@ body {
 .mgg.warn {
 	color: #664d03;
 }
+
+.pc-info {
+	width: 100%;
+	font-size: .875em;
+	display: block;
+	margin-top: 7px;
+}
+
+
+.pc-info svg {
+	margin-right: 5px;
+	color: #43afca;
+}
