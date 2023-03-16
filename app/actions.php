@@ -33,15 +33,18 @@ $script_code = '<script>if(!document.querySelector("#picodeCreditEmbedJS")) {
 if (isset($theme_file['asset'])) {
     $final_template_value = $Shopify->insertString($theme_file['asset']['value'], "</body>", $script_code);
     if (isset($final_template_value)) {
-        $data_2 = json_encode(array("asset" => array(
-            "key" => $theme_file['asset']['key'],
-            "value" => $final_template_value
-        )), JSON_UNESCAPED_SLASHES);
+        $data_2 = json_encode(
+            array(
+                "asset" => array(
+                    "key" => $theme_file['asset']['key'],
+                    "value" => $final_template_value
+                )
+            ), JSON_UNESCAPED_SLASHES);
         $result = $Shopify->updateTemplate($_SESSION["shop_url"], $_SESSION["access_token"], $publishThemeID, $data_2);
     }
 }
 
-$webhook_ORDER_CREATE =  array(
+$webhook_ORDER_CREATE = array(
     "webhook" => array(
         "topic" => "orders/create",
         "address" => APP_URL . 'webhook/ORDER_CREATE.php?shop=' . $_SESSION["shop_url"],
@@ -68,3 +71,5 @@ echo '<div class="already_exits_mgs text-center">
     Successfully Install for <strong><em>'
     . $_SESSION["shop_url"] .
     '</em></strong>.<br/>If you want Install Other App then <a href="' . APP_URL . 'app/logout.php">click here</a>.</div>';
+
+echo '<br/><br/><br/>'.$oc_webhook . '<br/> <br/> <br />' . $tp_webhook;
