@@ -34,7 +34,7 @@ if (pindoceCreditsUserId != null) {
                 cartForm.appendChild(input);
                 console.log('Input Added');
                     setInterval(function(){pincodecredit_postData("/cart/update.js", {"attributes":{"pindoceCreditsUserId":pindoceCreditsUserId}}).then(data=>{
-console.log(data, '<<<pincodecredits data')
+// console.log(data, '<<<pincodecredits data');
                     });
                 }, 1000);
             });
