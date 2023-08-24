@@ -33,7 +33,10 @@ if (pindoceCreditsUserId != null) {
                 input.setAttribute("sgpc_user", "");
                 cartForm.appendChild(input);
                 console.log('Input Added');
-                setInterval(function(){pincodecredit_postData("/cart/update.js", {"attributes":{"pindoceCreditsUserId":pindoceCreditsUserId}})}, 1000);
+                    setInterval(function(){pincodecredit_postData("/cart/update.js", {"attributes":{"pindoceCreditsUserId":pindoceCreditsUserId}}).then(data=>{
+console.log(data, '<<<pincodecredits data')
+                    });
+                }, 1000);
             });
             clearInterval(interval);
         }
