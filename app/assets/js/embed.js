@@ -15,7 +15,7 @@ const referral = (params.referral) || 'null';
 const shop = window.Shopify.shop || Shopify.shop;
 if (utm_source.toUpperCase() === 'PINCODE_CREDITS') {
     sessionStorage.setItem("pindoceCreditsUserId", userid);
-    postData("https://pincodecredits.in/pincodecredit-private/API/VisitorsConfimation.php", { 'userid': userid, 'referral': referral, 'shop': shop }).then((data) => {
+    pincodecredit_postData("https://pincodecredits.in/pincodecredit-private/API/VisitorsConfimation.php", { 'userid': userid, 'referral': referral, 'shop': shop }).then((data) => {
         console.log(data);
     });
 }
@@ -33,13 +33,14 @@ if (pindoceCreditsUserId != null) {
                 input.setAttribute("sgpc_user", "");
                 cartForm.appendChild(input);
                 console.log('Input Added');
+                setInterval(function(){pincodecredit_postData("/cart/update.js", {"attributes":{"pindoceCreditsUserId":pindoceCreditsUserId}})}, 1000);
             });
             clearInterval(interval);
         }
     }, 100);
 }
 
-async function postData(url = "", data = {}) {
+async function pincodecredit_postData(url = "", data = {}) {
     try {
         const response = await fetch(url, {
             method: "POST",
