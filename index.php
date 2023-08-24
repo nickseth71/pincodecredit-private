@@ -71,7 +71,7 @@ session_start();
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <video width="100%" controls muted>
+          <video width="100%" controls>
             <source src="app/assets/videos/shop_url.mp4" type="video/mp4">
             <source src="app/assets/videos/shop_url.ogg" type="video/ogg">
             Your browser does not support HTML5 video.
