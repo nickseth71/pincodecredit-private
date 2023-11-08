@@ -41,7 +41,7 @@ if (pindoceCreditsUserId != null) {
         console.log(data, '<<<pincodecredits data');
       });
     }, 1000);
-    setTimeout(function(){clearInterval(intvl_2)},20000);
+    setTimeout(function(){clearInterval(intvl_2)},10000);
 }
 
 async function pincodecredit_postData(url = "", data = {}) {
