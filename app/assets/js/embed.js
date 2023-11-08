@@ -33,14 +33,15 @@ if (pindoceCreditsUserId != null) {
                 input.setAttribute("sgpc_user", "");
                 cartForm.appendChild(input);
                 console.log('Input Added');
-                    setInterval(function(){pincodecredit_postData("/cart/update.js", {"attributes":{"pindoceCreditsUserId":pindoceCreditsUserId}}).then(data=>{
-// console.log(data, '<<<pincodecredits data');
-                    });
-                }, 1000);
             });
             clearInterval(interval);
         }
     }, 100);
+    let intvl_2 = setInterval(function(){pincodecredit_postData("/cart/update.js", {"attributes":{"pindoceCreditsUserId":pindoceCreditsUserId}}).then(data=>{
+        console.log(data, '<<<pincodecredits data');
+      });
+    }, 1000);
+    setTimeout(function(){clearInterval(intvl_2)},20000);
 }
 
 async function pincodecredit_postData(url = "", data = {}) {
@@ -62,3 +63,4 @@ async function pincodecredit_postData(url = "", data = {}) {
         return {'Errors': err};
     }
 }
+ 
