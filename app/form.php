@@ -76,8 +76,15 @@ if (isset($_SESSION["access_token"]) and isset($_SESSION["shop_url"]) and $flag)
                 <li>
                     <a class="dropdown-item" data-bs-toggle="modal" href="#exampleModalToggle2" role="button">How to get Access Token</a>
                 </li>
+                <li>
+                    <a class="dropdown-item" data-bs-toggle="modal" href="#exampleModalToggle4" role="button">Manual Installation</a>
+                </li>
             </ul>
         </div>
+        <button type="button" class="btn btn-dark" data-bs-toggle="modal" href="#exampleModalToggle3">
+            <span class="spinner-grow spinner-grow-sm" hidden=""></span>
+            <span class="btn-text">Get Code</span>
+        </button>
     </div>
 </form>';
 }
