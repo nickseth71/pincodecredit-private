@@ -275,8 +275,8 @@ session_start();
         </div>
         <div class="modal-body">
           <video width="100%" controls muted>
-            <source src="app/assets/videos/access_token.mp4" type="video/mp4">
-            <source src="app/assets/videos/access_token.ogg" type="video/ogg">
+            <source src="app/assets/videos/manual_Installation.mp4" type="video/mp4">
+            <source src="app/assets/videos/manual_Installation.ogg" type="video/ogg">
             Your browser does not support HTML5 video.
           </video>
         </div>
