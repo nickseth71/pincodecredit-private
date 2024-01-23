@@ -37,6 +37,82 @@ session_start();
       }, 500);
     }
   </script>
+  <style>
+    .cody_code_box pre code {
+      font-size: .875em;
+    }
+
+    .cody_code_box {
+      padding: 12px 15px;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .cody_code_box pre {
+      margin: 0;
+    }
+
+    .bi {
+      width: 1em;
+      height: 1em;
+      vertical-align: -0.125em;
+      fill: currentcolor;
+    }
+
+    .btn-clipboard {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      z-index: 2;
+      display: block;
+      padding: .3em;
+      line-height: 1;
+      color: var(--bs-body-color);
+      background-color: var(--bd-pre-bg);
+      border: 0;
+      border-radius: .25rem
+    }
+
+    .btn-clipboard:hover {
+      color: var(--bs-link-hover-color)
+    }
+
+    .btn-clipboard:focus {
+      z-index: 99;
+    }
+
+    .btn-clipboard:after {
+      content: attr(aria-label);
+      position: absolute;
+      font-size: 13px;
+      top: -27px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(248, 249, 250, var(--bs-bg-opacity, 1)) !important;
+      background: #000;
+      padding: 5px 8px;
+      border-radius: 6px;
+      opacity: 0;
+    }
+
+    .btn-clipboard:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -7px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid #000;
+      border-bottom-color: transparent;
+      border-left-color: transparent;
+      opacity: 0;
+    }
+
+    .btn-clipboard:hover:after,
+    .btn-clipboard:hover:before {
+      opacity: 1;
+    }
+  </style>
 </head>
 
 <body>
